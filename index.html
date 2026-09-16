@@ -897,15 +897,11 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 
 <div class="demo-block" id="demo-rescue">
-<h3 style="text-align:center;">Checker Rescue: Cut Vocals</h3>
-<p class="demo-note">Without the checker, the planner cut a lead vocal mid-phrase. With the checker, V2 moves the cue and keeps the phrase intact.</p>
+<h3 style="text-align:center;">Checker Rescue</h3>
+<p class="demo-note">Without the checker, V1 leaves an audible flaw at the seam. The checker flags it and V2 repairs the plan.</p>
 <div class="demo-task">
 <div class="demo-task-title">Case 1: [Track A] → [Track B]</div>
-<div class="methods-grid-3">
-<div class="method-card">
-<div class="card-label">V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/rescue/case1/v0.mp3" type="audio/mpeg"></audio>
-</div>
+<div class="methods-grid-ours">
 <div class="method-card">
 <div class="card-label">V1 (+Reasoning)</div>
 <audio controls preload="none"><source src="demo/rescue/case1/v1.mp3" type="audio/mpeg"></audio>
@@ -918,11 +914,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="demo-task">
 <div class="demo-task-title">Case 2: [Track A] → [Track B]</div>
-<div class="methods-grid-3">
-<div class="method-card">
-<div class="card-label">V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/rescue/case2/v0.mp3" type="audio/mpeg"></audio>
-</div>
+<div class="methods-grid-ours">
 <div class="method-card">
 <div class="card-label">V1 (+Reasoning)</div>
 <audio controls preload="none"><source src="demo/rescue/case2/v1.mp3" type="audio/mpeg"></audio>
@@ -969,12 +961,13 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <button class="demo-tab active" data-tab="story1">Story 1</button>
 <button class="demo-tab" data-tab="story2">Story 2</button>
 <button class="demo-tab" data-tab="story3">Story 3</button>
+<button class="demo-tab" data-tab="story4">Story 4</button>
 </div>
 <div class="demo-content active" id="tab-story1">
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Story prompt</div>
-<p class="story-prompt">“From the steady, low-key camaraderie of friends grinding side by side, gathering momentum, pushing ever higher, and bursting into the triumphant celebration of a wild party.”</p>
+<p class="story-prompt">“Walk away from the wrong person, fall for someone new, and finally face my own mistakes.”</p>
 </div>
 <div class="methods-grid-1">
 <div class="method-card ours">
@@ -986,7 +979,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyrics-grid">
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
-<div class="lyric-clause">From the steady, low-key camaraderie of friends grinding side by side</div>
+<div class="lyric-clause">Walk away from the wrong person</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set1" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
@@ -996,7 +989,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
-<div class="lyric-clause">gathering momentum, pushing ever higher</div>
+<div class="lyric-clause">fall for someone new</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set1" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
@@ -1006,7 +999,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
-<div class="lyric-clause">and bursting into the triumphant celebration of a wild party</div>
+<div class="lyric-clause">and finally face my own mistakes</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set1" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
@@ -1021,7 +1014,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Story prompt</div>
-<p class="story-prompt">“[Act 1 of story 2], [act 2], [act 3].”</p>
+<p class="story-prompt">“A sweet romance begins, slowly gets complicated, and ends with me alone and sad.”</p>
 </div>
 <div class="methods-grid-1">
 <div class="method-card ours">
@@ -1033,7 +1026,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyrics-grid">
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
-<div class="lyric-clause">[Act 1 of story 2]</div>
+<div class="lyric-clause">A sweet romance begins</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set2" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
@@ -1043,7 +1036,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
-<div class="lyric-clause">[act 2]</div>
+<div class="lyric-clause">slowly gets complicated</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set2" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
@@ -1053,7 +1046,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
-<div class="lyric-clause">[act 3]</div>
+<div class="lyric-clause">and ends with me alone and sad</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set2" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
@@ -1068,7 +1061,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Story prompt</div>
-<p class="story-prompt">“[Act 1 of story 3], [act 2], [act 3].”</p>
+<p class="story-prompt">“Secretly in love with someone, can't stop missing them, and finally brave enough to say it.”</p>
 </div>
 <div class="methods-grid-1">
 <div class="method-card ours">
@@ -1080,7 +1073,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyrics-grid">
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
-<div class="lyric-clause">[Act 1 of story 3]</div>
+<div class="lyric-clause">Secretly in love with someone</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set3" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
@@ -1090,7 +1083,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
-<div class="lyric-clause">[act 2]</div>
+<div class="lyric-clause">can't stop missing them</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set3" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
@@ -1100,12 +1093,59 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
-<div class="lyric-clause">[act 3]</div>
+<div class="lyric-clause">and finally brave enough to say it</div>
 <div class="lyric-song">[Song title]</div>
 <ul class="lyric-lines">
 <li><button class="seek" data-audio="set3" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
 <li><button class="seek" data-audio="set3" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
 <li><button class="seek" data-audio="set3" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="demo-content" id="tab-story4">
+<div class="demo-task">
+<div class="source-card">
+<div class="card-label">Story prompt</div>
+<p class="story-prompt">“Heading out light-hearted with friends, letting loose as the night goes on, and ending in a triumphant party.”</p>
+</div>
+<div class="methods-grid-1">
+<div class="method-card ours">
+<div class="card-label">Ours (V3)</div>
+<audio id="set4" controls preload="none"><source src="demo/sets/story4/v3.mp3" type="audio/mpeg"></audio>
+</div>
+</div>
+<div class="demo-sublabel">Lyrics heard in the set (translated to English)</div>
+<div class="lyrics-grid">
+<div class="lyric-card">
+<div class="lyric-act">Act 1</div>
+<div class="lyric-clause">Heading out light-hearted with friends</div>
+<div class="lyric-song">[Song title]</div>
+<ul class="lyric-lines">
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:12">0:12</button><span>[Lyric line 2, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:24">0:24</button><span>[Lyric line 3, English translation]</span></li>
+</ul>
+</div>
+<div class="lyric-card">
+<div class="lyric-act">Act 2</div>
+<div class="lyric-clause">letting loose as the night goes on</div>
+<div class="lyric-song">[Song title]</div>
+<ul class="lyric-lines">
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 1:11">1:11</button><span>[Lyric line 2, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 1:23">1:23</button><span>[Lyric line 3, English translation]</span></li>
+</ul>
+</div>
+<div class="lyric-card">
+<div class="lyric-act">Act 3</div>
+<div class="lyric-clause">and ending in a triumphant party</div>
+<div class="lyric-song">[Song title]</div>
+<ul class="lyric-lines">
+<li><button class="seek" data-audio="set4" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
 </ul>
 </div>
 </div>
