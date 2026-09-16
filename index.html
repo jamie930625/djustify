@@ -605,6 +605,16 @@
     :root{ --accent-fill:#eab308; --on-accent:#1c1917; }
     .sticky-nav { padding-top: env(safe-area-inset-top, 0px); }
 
+    /* the header was cramped: give the title block and the figure room to breathe */
+    header { padding: 76px 0 16px; }
+    header h1 { line-height:1.24; margin:0 0 1.1rem; }
+    header .authors { margin:0 0 .5rem; }
+    header .equal-note { margin:0; line-height:1.9; }
+    .resource-links { margin:30px 0 8px; }
+    .hero-figure--bleed { margin:30px auto 0; }
+    .tagline { margin-top:22px; }
+    @media (max-width:768px){ header { padding:48px 0 12px; } header h1 { margin-bottom:.8rem; } }
+
     /* alternating bands: white demo cards float on the grey Demos band, as in the reference */
     #abstract { background:#fff; border:0; }
     #demos { background:#f8f7f2; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:28px 0; margin-top:32px; }
@@ -675,8 +685,7 @@
 <span class="author">[Author 3]<sup>2</sup></span>
 </div>
 <p class="equal-note muted">
-<sup>1</sup>[Affiliation 1]<br>
-<sup>2</sup>[Affiliation 2]<br>
+<sup>1</sup>[Affiliation 1], <sup>2</sup>[Affiliation 2]<br>
 Submitted to ICASSP 2027
 </p>
 <div class="resource-links" aria-label="project-links">
