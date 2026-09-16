@@ -645,8 +645,10 @@
 
     .methods-grid-1 { display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
     .demo-note { text-align:center; color:var(--muted); font-size:.95rem; margin:0 auto 1rem; max-width:780px; }
-    .source-card .story-prompt { margin:0 auto; max-width:760px; line-height:1.65; }
-    .source-card .story-prompt { font-style:italic; color:var(--fg); }
+    .source-card.prompt-card { background:linear-gradient(145deg, rgba(124,58,237,.10), rgba(124,58,237,.04)); border:2px solid rgba(124,58,237,.35); padding:1.4rem 1.2rem 1.5rem; }
+    .prompt-card .card-label { color:var(--accent); text-transform:uppercase; letter-spacing:.08em; font-size:.78rem; }
+    .source-card .story-prompt { margin:.35rem auto 0; max-width:820px; line-height:1.45; font-size:1.45rem; font-weight:600; color:var(--fg); }
+    @media (max-width:768px){ .source-card .story-prompt { font-size:1.15rem; } }
 
     /* lyrics under a story set */
     .lyrics-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:12px; }
@@ -965,7 +967,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="demo-content active" id="tab-story1">
 <div class="demo-task">
-<div class="source-card">
+<div class="source-card prompt-card">
 <div class="card-label">Story prompt</div>
 <p class="story-prompt">“Walk away from the wrong person, fall for someone new, and finally face my own mistakes.”</p>
 </div>
@@ -980,31 +982,28 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
 <div class="lyric-clause">Walk away from the wrong person</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">嚣张</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set1" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 0:12">0:12</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 0:24">0:24</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 0:39">0:39</button><span>How arrogant can you be</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 0:46">0:46</button><span>You say I&#x27;m not needed, so I should just leave</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
 <div class="lyric-clause">fall for someone new</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">favorite</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set1" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 1:11">1:11</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 1:23">1:23</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 1:15">1:15</button><span>Loving you, I became someone new</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 1:44">1:44</button><span>You bring out my best side</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
 <div class="lyric-clause">and finally face my own mistakes</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">She&#x27;s Gone</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set1" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set1" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 2:42">2:42</button><span>I took her love like candy from a child</span></li>
+<li><button class="seek" data-audio="set1" aria-label="Play from 2:49">2:49</button><span>While I was loving another all the while</span></li>
 </ul>
 </div>
 </div>
@@ -1012,7 +1011,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="demo-content" id="tab-story2">
 <div class="demo-task">
-<div class="source-card">
+<div class="source-card prompt-card">
 <div class="card-label">Story prompt</div>
 <p class="story-prompt">“A sweet romance begins, slowly gets complicated, and ends with me alone and sad.”</p>
 </div>
@@ -1027,31 +1026,28 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
 <div class="lyric-clause">A sweet romance begins</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">No Sense</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set2" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 0:12">0:12</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 0:24">0:24</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 0:03">0:03</button><span>Won&#x27;t you pull up to me now</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 0:10">0:10</button><span>I&#x27;m going in with you</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
 <div class="lyric-clause">slowly gets complicated</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">After Last Night</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set2" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 1:11">1:11</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 1:23">1:23</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 0:50">0:50</button><span>Damn, I don&#x27;t even know who I was last night</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 2:13">2:13</button><span>You woke up and I can&#x27;t get you out of my head</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
 <div class="lyric-clause">and ends with me alone and sad</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">在那遙遠的地方</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set2" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set2" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 2:34">2:34</button><span>But you&#x27;re never by my side</span></li>
+<li><button class="seek" data-audio="set2" aria-label="Play from 2:38">2:38</button><span>My heart is full of missing you</span></li>
 </ul>
 </div>
 </div>
@@ -1059,7 +1055,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="demo-content" id="tab-story3">
 <div class="demo-task">
-<div class="source-card">
+<div class="source-card prompt-card">
 <div class="card-label">Story prompt</div>
 <p class="story-prompt">“Secretly in love with someone, can't stop missing them, and finally brave enough to say it.”</p>
 </div>
@@ -1074,31 +1070,28 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
 <div class="lyric-clause">Secretly in love with someone</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">星座</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set3" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 0:12">0:12</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 0:24">0:24</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 0:54">0:54</button><span>Tell me how to win that heart</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 0:59">0:59</button><span>Just like you, impossible to read</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
 <div class="lyric-clause">can't stop missing them</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">Can&#x27;t Leave Alone</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set3" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 1:11">1:11</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 1:23">1:23</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 1:04">1:04</button><span>See you all the damn time</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 1:38">1:38</button><span>I can&#x27;t leave alone</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
 <div class="lyric-clause">and finally brave enough to say it</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">Hello</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set3" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set3" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 2:43">2:43</button><span>I&#x27;m working up my courage</span></li>
+<li><button class="seek" data-audio="set3" aria-label="Play from 2:59">2:59</button><span>Maybe we&#x27;ll work out</span></li>
 </ul>
 </div>
 </div>
@@ -1106,7 +1099,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="demo-content" id="tab-story4">
 <div class="demo-task">
-<div class="source-card">
+<div class="source-card prompt-card">
 <div class="card-label">Story prompt</div>
 <p class="story-prompt">“Heading out light-hearted with friends, letting loose as the night goes on, and ending in a triumphant party.”</p>
 </div>
@@ -1121,31 +1114,28 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="lyric-card">
 <div class="lyric-act">Act 1</div>
 <div class="lyric-clause">Heading out light-hearted with friends</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">Beef Noodle Soup</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set4" aria-label="Play from 0:00">0:00</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 0:12">0:12</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 0:24">0:24</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:09">0:09</button><span>Walkin&#x27; through the town, sayin&#x27; what up to my people</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 0:12">0:12</button><span>What a good day to be happy now</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 2</div>
 <div class="lyric-clause">letting loose as the night goes on</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">鬼地方</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set4" aria-label="Play from 0:59">0:59</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 1:11">1:11</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 1:23">1:23</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 1:41">1:41</button><span>This is how we roll</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 1:51">1:51</button><span>Time to leave this damn place</span></li>
 </ul>
 </div>
 <div class="lyric-card">
 <div class="lyric-act">Act 3</div>
 <div class="lyric-clause">and ending in a triumphant party</div>
-<div class="lyric-song">[Song title]</div>
+<div class="lyric-song">The Next Episode</div>
 <ul class="lyric-lines">
-<li><button class="seek" data-audio="set4" aria-label="Play from 2:02">2:02</button><span>[Lyric line 1, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
-<li><button class="seek" data-audio="set4" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 2:37">2:37</button><span>Get my drink on, and my smoke on</span></li>
+<li><button class="seek" data-audio="set4" aria-label="Play from 2:58">2:58</button><span>We gon&#x27; rock it till the wheels fall off</span></li>
 </ul>
 </div>
 </div>
