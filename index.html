@@ -631,6 +631,18 @@
     }
     .audio-playing { border-color:var(--accent-fill) !important; }
 
+    /* each demo is one framed panel so the four blocks read as four */
+    .demo-block {
+      background:#fff; border:1px solid var(--border); border-radius:14px;
+      padding:24px 22px 26px; margin:26px 0; box-shadow:0 1px 3px rgba(20,16,40,.05);
+    }
+    .demo-block > h3:first-child { margin:0 0 .35rem; font-size:clamp(1.15rem,1.9vw,1.4rem); }
+    .demo-block .demo-note { margin-bottom:0; }
+    /* the panel is the card now, so the inner task frame goes away */
+    .demo-block .demo-task { border:0; box-shadow:none; background:transparent; padding:0; margin:1.1rem 0 0; }
+    .demo-block .demo-task + .demo-task { border-top:1px solid var(--border); margin-top:1.6rem; padding-top:1.4rem; }
+    @media (max-width:768px){ .demo-block { padding:18px 14px 20px; margin:18px 0; } }
+
     .methods-grid-1 { display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px; }
     .demo-note { text-align:center; color:var(--muted); font-size:.95rem; margin:0 auto 1rem; max-width:780px; }
     .source-card .story-prompt { margin:0 auto; max-width:760px; line-height:1.65; }
@@ -719,7 +731,8 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <h2>Audio Demos</h2>
 <div class="content">
 
-<h3 style="text-align:center; margin-top:1.25rem;">Transition Comparison</h3>
+<div class="demo-block" id="demo-transitions">
+<h3 style="text-align:center;">Transition Comparison</h3>
 <p class="demo-note">All systems mix the same track pair; our clips are the planner’s first output, not re-sampled.</p>
 <div class="demo-tab-group">
 <div class="demo-tabs">
@@ -881,9 +894,10 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 </div>
 </div>
+</div>
 
-<hr class="section-sep">
-<h3 style="text-align:center; margin-top:1.25rem;">Checker Rescue: Cut Vocals</h3>
+<div class="demo-block" id="demo-rescue">
+<h3 style="text-align:center;">Checker Rescue: Cut Vocals</h3>
 <p class="demo-note">Without the checker, the planner cut a lead vocal mid-phrase. With the checker, V2 moves the cue and keeps the phrase intact.</p>
 <div class="demo-task">
 <div class="demo-task-title">Case 1: [Track A] → [Track B]</div>
@@ -919,9 +933,10 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 </div>
 </div>
+</div>
 
-<hr class="section-sep">
-<h3 style="text-align:center; margin-top:1.25rem;">Constrained Diversity</h3>
+<div class="demo-block" id="demo-diversity">
+<h3 style="text-align:center;">Constrained Diversity</h3>
 <p class="demo-note">One track pair, sampled four times: different techniques and cue points, all passing the checker.</p>
 <div class="demo-task">
 <div class="demo-task-title">[Track A] → [Track B]</div>
@@ -944,9 +959,10 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 </div>
 </div>
+</div>
 
-<hr class="section-sep">
-<h3 style="text-align:center; margin-top:1.25rem;">Story-Driven DJ Sets</h3>
+<div class="demo-block" id="demo-sets">
+<h3 style="text-align:center;">Story-Driven DJ Sets</h3>
 <p class="demo-note">From a story prompt, the planner picks and orders three songs along an emotional arc. Click a timestamp to jump there.</p>
 <div class="demo-tab-group">
 <div class="demo-tabs">
@@ -1091,6 +1107,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <li><button class="seek" data-audio="set3" aria-label="Play from 2:14">2:14</button><span>[Lyric line 2, English translation]</span></li>
 <li><button class="seek" data-audio="set3" aria-label="Play from 2:26">2:26</button><span>[Lyric line 3, English translation]</span></li>
 </ul>
+</div>
 </div>
 </div>
 </div>
