@@ -601,6 +601,27 @@
       text-align: center;
     }
 
+
+    /* ===== player with transition markers ===== */
+    .pl { display:flex; align-items:center; gap:12px; margin-top:10px; }
+    .pl-btn { flex:none; width:38px; height:38px; border-radius:50%; border:0; cursor:pointer; display:grid; place-items:center;
+              background:#26232e; color:#fff; transition:transform .15s ease, background .15s ease; }
+    .pl-btn:hover { background:#3b3745; }
+    .pl-btn:active { transform:scale(.94); }
+    .pl-btn svg { width:18px; height:18px; fill:currentColor; }
+    .pl-btn .i-pause, .pl.playing .pl-btn .i-play { display:none; }
+    .pl.playing .pl-btn .i-pause { display:block; }
+    .pl-bar { position:relative; flex:1; height:28px; cursor:pointer; touch-action:none; }
+    .pl-track { position:absolute; left:0; right:0; top:50%; height:4px; margin-top:-2px; border-radius:3px; background:#e6e4ea; overflow:hidden; }
+    .pl-fill { height:100%; width:0; background:#8d8a97; }
+    .pl-mark { position:absolute; top:50%; height:12px; margin-top:-6px; width:2px; margin-left:-1px; border-radius:1px; background:rgba(109,40,217,.38); pointer-events:none; }
+    .pl-head { position:absolute; top:50%; left:0; width:12px; height:12px; margin:-6px 0 0 -6px; border-radius:50%;
+               background:#fff; border:2px solid #6f6b7a; box-shadow:0 1px 3px rgba(0,0,0,.15); pointer-events:none; }
+    .pl-bar:focus-visible { outline:2px solid #6d28d9; outline-offset:2px; border-radius:4px; }
+    .pl-time { flex:none; font-size:.8rem; color:var(--muted); font-variant-numeric:tabular-nums; min-width:5.6em; text-align:right; }
+    .audio-locked { opacity:1 !important; pointer-events:auto !important; }
+    .audio-playing { box-shadow:0 0 0 2px rgba(124,58,237,.45) !important; animation:none !important; }
+    @media (prefers-reduced-motion: reduce){ .pl-btn { transition:none; } }
     /* ===== DJustify additions ===== */
     :root{ --accent-fill:#7c3aed; --on-accent:#fff; }
     .sticky-nav { padding-top: env(safe-area-inset-top, 0px); }
@@ -738,7 +759,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 
 <div class="demo-block" id="demo-transitions">
 <h3 style="text-align:center;">Transition Comparison</h3>
-<p class="demo-note">All systems mix the same track pair; our clips are the planner’s first output, not re-sampled.</p>
+<p class="demo-note">Each system mixes the same outgoing track; our clips are the planner’s first output, not re-sampled.</p>
 <div class="demo-tab-group">
 <div class="demo-tabs">
 <button class="demo-tab active" data-tab="pair1">Pair 1</button>
@@ -750,35 +771,35 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Human DJ (reference)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/human_dj.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="13.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/human_dj.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:41.96%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="methods-grid-3">
 <div class="method-card">
 <div class="card-label">Mosaikbox</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/mosaikbox.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="7.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/mosaikbox.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:29.97%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Bittner'17 (Spotify)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/bittner17.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/bittner17.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Vc (cue baseline)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/vc.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/vc.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 <div style="height:12px"></div>
 <div class="methods-grid-3">
 <div class="method-card ours">
 <div class="card-label">Ours V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/v0.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/v0.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/transitions/pair1/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair1/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -787,35 +808,35 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Human DJ (reference)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/human_dj.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="12.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/human_dj.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:39.96%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="methods-grid-3">
 <div class="method-card">
 <div class="card-label">Mosaikbox</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/mosaikbox.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="4.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/mosaikbox.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:23.98%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Bittner'17 (Spotify)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/bittner17.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="22.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/bittner17.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:59.94%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Vc (cue baseline)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/vc.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/vc.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 <div style="height:12px"></div>
 <div class="methods-grid-3">
 <div class="method-card ours">
 <div class="card-label">Ours V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/v0.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="16.80" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/v0.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.55%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="16.80" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.55%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/transitions/pair2/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="16.80" data-dur="50.05"><audio preload="none" src="demo/transitions/pair2/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.55%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -824,35 +845,35 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Human DJ (reference)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/human_dj.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="9.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/human_dj.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:33.97%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="methods-grid-3">
 <div class="method-card">
 <div class="card-label">Mosaikbox</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/mosaikbox.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="5.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/mosaikbox.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:25.97%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Bittner'17 (Spotify)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/bittner17.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="18.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/bittner17.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:51.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Vc (cue baseline)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/vc.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/vc.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 <div style="height:12px"></div>
 <div class="methods-grid-3">
 <div class="method-card ours">
 <div class="card-label">Ours V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/v0.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/v0.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/transitions/pair3/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair3/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -861,35 +882,35 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="demo-task">
 <div class="source-card">
 <div class="card-label">Human DJ (reference)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/human_dj.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="11.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/human_dj.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:37.96%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="methods-grid-3">
 <div class="method-card">
 <div class="card-label">Mosaikbox</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/mosaikbox.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="7.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/mosaikbox.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:29.97%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Bittner'17 (Spotify)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/bittner17.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="18.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/bittner17.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:51.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card">
 <div class="card-label">Vc (cue baseline)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/vc.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/vc.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 <div style="height:12px"></div>
 <div class="methods-grid-3">
 <div class="method-card ours">
 <div class="card-label">Ours V0 (Direct)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/v0.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/v0.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/transitions/pair4/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/transitions/pair4/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -904,7 +925,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="rescue-row">
 <div class="method-card">
 <div class="card-label">V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/rescue/case1/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/rescue/case1/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="rescue-arrow" aria-hidden="true">
 <span>after checker</span>
@@ -912,7 +933,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/rescue/case1/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/rescue/case1/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -920,7 +941,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="rescue-row">
 <div class="method-card">
 <div class="card-label">V1 (+Reasoning)</div>
-<audio controls preload="none"><source src="demo/rescue/case2/v1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/rescue/case2/v1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 <div class="rescue-arrow" aria-hidden="true">
 <span>after checker</span>
@@ -928,7 +949,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 </div>
 <div class="method-card ours">
 <div class="card-label">Ours V2 (Full)</div>
-<audio controls preload="none"><source src="demo/rescue/case2/v2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="17.00" data-dur="50.05"><audio preload="none" src="demo/rescue/case2/v2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="50" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.95%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 0:50</span></div>
 </div>
 </div>
 </div>
@@ -941,15 +962,15 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="methods-grid-3">
 <div class="method-card ours">
 <div class="card-label">Blend</div>
-<audio controls preload="none"><source src="demo/diversity/sample1.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="21.00" data-dur="60.03"><audio preload="none" src="demo/diversity/sample1.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:48.31%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 1:00</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Filter</div>
-<audio controls preload="none"><source src="demo/diversity/sample2.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="22.00" data-dur="60.03"><audio preload="none" src="demo/diversity/sample2.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:49.98%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 1:00</span></div>
 </div>
 <div class="method-card ours">
 <div class="card-label">Echo</div>
-<audio controls preload="none"><source src="demo/diversity/sample3.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="24.00" data-dur="60.03"><audio preload="none" src="demo/diversity/sample3.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="60" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:53.31%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 1:00</span></div>
 </div>
 </div>
 </div>
@@ -973,7 +994,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="methods-grid-1">
 <div class="method-card ours">
 <div class="card-label">Ours (V3)</div>
-<audio id="set1" controls preload="none"><source src="demo/sets/story1/v3.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="0.00" data-dur="178.47"><audio id="set1" preload="none" src="demo/sets/story1/v3.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="178" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:32.11%"></span><span class="pl-mark" style="left:76.48%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 2:58</span></div>
 </div>
 </div>
 <div class="demo-sublabel">Lyrics heard in the set (translated to English)</div>
@@ -1014,7 +1035,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="methods-grid-1">
 <div class="method-card ours">
 <div class="card-label">Ours (V3)</div>
-<audio id="set2" controls preload="none"><source src="demo/sets/story2/v3.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="0.00" data-dur="182.05"><audio id="set2" preload="none" src="demo/sets/story2/v3.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="182" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:23.62%"></span><span class="pl-mark" style="left:76.79%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 3:02</span></div>
 </div>
 </div>
 <div class="demo-sublabel">Lyrics heard in the set (translated to English)</div>
@@ -1055,7 +1076,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="methods-grid-1">
 <div class="method-card ours">
 <div class="card-label">Ours (V3)</div>
-<audio id="set3" controls preload="none"><source src="demo/sets/story3/v3.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="0.00" data-dur="176.43"><audio id="set3" preload="none" src="demo/sets/story3/v3.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="176" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:35.08%"></span><span class="pl-mark" style="left:67.73%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 2:56</span></div>
 </div>
 </div>
 <div class="demo-sublabel">Lyrics heard in the set (translated to English)</div>
@@ -1096,7 +1117,7 @@ Automatic DJ systems mostly target electronic dance music, whose regular structu
 <div class="methods-grid-1">
 <div class="method-card ours">
 <div class="card-label">Ours (V3)</div>
-<audio id="set4" controls preload="none"><source src="demo/sets/story4/v3.mp3" type="audio/mpeg"></audio>
+<div class="pl" data-start="0.00" data-dur="177.27"><audio id="set4" preload="none" src="demo/sets/story4/v3.mp3"></audio><button class="pl-btn" type="button" aria-label="Play"><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h4v14H7zM13 5h4v14h-4z"/></svg></button><div class="pl-bar" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="177" aria-valuenow="0"><div class="pl-track"><div class="pl-fill"></div></div><span class="pl-mark" style="left:32.61%"></span><span class="pl-mark" style="left:65.78%"></span><span class="pl-head"></span></div><span class="pl-time">0:00 / 2:57</span></div>
 </div>
 </div>
 <div class="demo-sublabel">Lyrics heard in the set (translated to English)</div>
@@ -1282,6 +1303,55 @@ img.style.transform = `scale(${scale})`;
 });
 })();
 
+
+// Custom players: marker at each transition; a single-transition clip starts shortly before it.
+(function () {
+  function fmt(t) { t = Math.max(0, Math.round(t || 0)); return Math.floor(t / 60) + ':' + ('0' + t % 60).slice(-2); }
+  var players = document.querySelectorAll('.pl');
+  players.forEach(function (pl) {
+    var a = pl.querySelector('audio'), btn = pl.querySelector('.pl-btn'), bar = pl.querySelector('.pl-bar');
+    var fill = pl.querySelector('.pl-fill'), head = pl.querySelector('.pl-head'), time = pl.querySelector('.pl-time');
+    var dur = parseFloat(pl.dataset.dur) || 0, start = parseFloat(pl.dataset.start) || 0, started = false;
+    function D() { return (isFinite(a.duration) && a.duration > 0) ? a.duration : dur; }
+    function draw() {
+      var f = D() ? Math.min(1, a.currentTime / D()) : 0;
+      fill.style.width = (f * 100) + '%'; head.style.left = (f * 100) + '%';
+      time.textContent = fmt(a.currentTime) + ' / ' + fmt(D());
+      bar.setAttribute('aria-valuenow', Math.round(a.currentTime));
+    }
+    function seek(t) {
+      started = true;
+      function go() { a.currentTime = Math.max(0, Math.min(D(), t)); draw(); }
+      if (a.readyState >= 1) go(); else { a.addEventListener('loadedmetadata', go, { once: true }); a.load(); }
+    }
+    btn.addEventListener('click', function () {
+      if (!a.paused) { a.pause(); return; }
+      players.forEach(function (o) { var oa = o.querySelector('audio'); if (oa !== a && !oa.paused) oa.pause(); });
+      if (!started && a.currentTime < 0.5 && start > 0) {
+        started = true;
+        var go = function () { a.currentTime = start; a.play(); };
+        if (a.readyState >= 1) go(); else { a.addEventListener('loadedmetadata', go, { once: true }); a.load(); }
+      } else { started = true; a.play(); }
+    });
+    function fromEvent(e) { var r = bar.getBoundingClientRect(); return (e.clientX - r.left) / r.width * D(); }
+    bar.addEventListener('pointerdown', function (e) {
+      bar.setPointerCapture(e.pointerId); seek(fromEvent(e));
+      function mv(ev) { seek(fromEvent(ev)); }
+      function up() { bar.removeEventListener('pointermove', mv); bar.removeEventListener('pointerup', up); }
+      bar.addEventListener('pointermove', mv); bar.addEventListener('pointerup', up);
+    });
+    bar.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { seek(a.currentTime + 5); e.preventDefault(); }
+      if (e.key === 'ArrowLeft') { seek(a.currentTime - 5); e.preventDefault(); }
+      if (e.key === ' ' || e.key === 'Enter') { btn.click(); e.preventDefault(); }
+    });
+    a.addEventListener('timeupdate', draw);
+    a.addEventListener('seeked', function () { started = true; draw(); });
+    a.addEventListener('play', function () { pl.classList.add('playing'); btn.setAttribute('aria-label', 'Pause'); });
+    a.addEventListener('pause', function () { pl.classList.remove('playing'); btn.setAttribute('aria-label', 'Play'); });
+    a.addEventListener('ended', function () { pl.classList.remove('playing'); btn.setAttribute('aria-label', 'Play'); });
+  });
+})();
 // Lyric timestamps jump the story set's player to that moment.
 (function () {
   function toSec(t) { var p = t.split(':'); return (+p[0]) * 60 + (+p[1]); }
