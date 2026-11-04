@@ -697,6 +697,25 @@
       *, *::before, *::after { animation:none !important; transition:none !important; }
     }
 
+
+    /* ===== video band: dark terminal strip that matches the demo video ===== */
+    .video-band{
+      --vb-bg:#060807; --vb-line:rgba(110,231,160,.18);
+      box-sizing:border-box; width:100vw; margin:34px 0 0 calc(50% - 50vw);
+      background:radial-gradient(ellipse at 50% 50%, rgba(46,160,90,.10), transparent 60%), var(--vb-bg);
+      border-top:1px solid var(--vb-line); border-bottom:1px solid var(--vb-line);
+      padding:44px 20px; scroll-margin-top:56px;
+    }
+    .video-band-inner{ max-width:420px; margin:0 auto; }
+    .video-band video{
+      display:block; width:100%; aspect-ratio:4/5; height:auto; background:#000;
+      border:1px solid var(--vb-line); border-radius:10px;
+      box-shadow:0 0 0 1px rgba(0,0,0,.6), 0 0 40px rgba(46,160,90,.18);
+    }
+    @media (max-width:768px){
+      .video-band{ padding:28px 16px; margin-top:26px; }
+    }
+
   </style>
 </head>
 <body>
@@ -705,6 +724,7 @@
 <div class="sticky-nav-inner">
 <span class="sticky-nav-title">DJustify</span>
 <div class="sticky-nav-links">
+<a href="#video">Video</a>
 <a href="#abstract">Abstract</a>
 <a href="#demos">Demos</a>
 </div>
@@ -739,6 +759,13 @@ Submitted to ICASSP 2027
 <a href="https://github.com/ddman1101/DJustify" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.385-1.335-1.755-1.335-1.755-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.605-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12z"/></svg> Code</a>
 <a href="#demos"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z"/></svg> Audio Demos</a>
 </div>
+<section class="video-band" id="video" aria-label="System demo video">
+<div class="video-band-inner">
+<video controls playsinline preload="metadata" poster="demo/video/poster.jpg">
+<source src="demo/video/djustify_candyshop.mp4" type="video/mp4">
+</video>
+</div>
+</section>
 <figure class="hero-figure hero-figure--bleed">
 <img src="static/overview.png" alt="DJustify overview. Top, the DJ-transition system: a seed track and song pool pass through pre-processing and retrieval into a verify-planning loop, where Qwen3.6-35B-A3B selects track B, cue points, and the mixing skill, renders track A plus B, and a checker (vocal, energy, structure, pairing) either sends a failed plan back for repair or outputs the transition. Bottom, the DJ-set system: a story description becomes a valence-arousal curve, tracks are selected along it, and the same verify-planning loop builds the set one next track at a time.">
 </figure>
@@ -1375,6 +1402,12 @@ img.style.transform = `scale(${scale})`;
   });
 })();
 
+</script>
+<script>
+// only one thing plays at a time: the video pauses audio demos and vice versa
+document.addEventListener('play', function(e){
+  document.querySelectorAll('audio, video').forEach(function(m){ if(m!==e.target && !m.paused) m.pause(); });
+}, true);
 </script>
 </body>
 </html>
