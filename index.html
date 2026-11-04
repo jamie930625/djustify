@@ -698,22 +698,22 @@
     }
 
 
-    /* ===== video band: dark terminal strip that matches the demo video ===== */
+    /* ===== video band: purple strip that blends into the page ===== */
     .video-band{
-      --vb-bg:#060807; --vb-line:rgba(110,231,160,.18);
       box-sizing:border-box; width:100vw; margin:34px 0 0 calc(50% - 50vw);
-      background:radial-gradient(ellipse at 50% 50%, rgba(46,160,90,.10), transparent 60%), var(--vb-bg);
-      border-top:1px solid var(--vb-line); border-bottom:1px solid var(--vb-line);
-      padding:44px 20px; scroll-margin-top:56px;
+      background:
+        radial-gradient(ellipse 50% 60% at 50% 50%, rgba(124,58,237,.14), transparent 70%),
+        linear-gradient(to bottom, #fff 0%, #f3effd 22%, #f3effd 78%, #fff 100%);
+      padding:56px 20px; scroll-margin-top:56px;
     }
     .video-band-inner{ max-width:420px; margin:0 auto; }
     .video-band video{
       display:block; width:100%; aspect-ratio:4/5; height:auto; background:#000;
-      border:1px solid var(--vb-line); border-radius:10px;
-      box-shadow:0 0 0 1px rgba(0,0,0,.6), 0 0 40px rgba(46,160,90,.18);
+      border:1px solid rgba(124,58,237,.22); border-radius:12px;
+      box-shadow:0 18px 50px rgba(76,29,149,.22), 0 2px 8px rgba(76,29,149,.12);
     }
     @media (max-width:768px){
-      .video-band{ padding:28px 16px; margin-top:26px; }
+      .video-band{ padding:36px 16px; margin-top:26px; }
     }
 
   </style>
